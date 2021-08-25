@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script defer src="js/main.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Card</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-group">
+            <h1>Original: </h1>
+            <input type="number" id="numbers-of-cards" min="0" max="30" placeholder="Number of cards(max. 30)">
+            <button id="print-btn">Draw</button>
+            <button id="sort-btn">Sort</button>
+        </div>
+        <div class="cards-container"></div>
+        <div class="sort-header">
+            <h1>Selection Log:</h1>
+        </div>
+        <div id="sort-log"></div>
+    </div>
+</body>
+
+</html>
