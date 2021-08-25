@@ -18,7 +18,6 @@ sortBtn.addEventListener('click', sortElements);
 // functions
 
 function generateCards() {
-
     resetArrayCards();
     logSort.innerHTML = "";
     if (numberOfCards.value < 1) {
@@ -26,7 +25,7 @@ function generateCards() {
     } else if (numberOfCards.value > 30) {
         numberOfCards.value = 30;
     }
-    for (let i = 0 ; i < numberOfCards.value; i ++) {
+    for (let i = 0 ; i < numberOfCards.value; i++) {
         const cardElement = document.createElement('div');
         cardElement.classList.add('card');
         const [pinta, content, value, valuePinta] = randomElements();
@@ -69,7 +68,6 @@ function sortElements() {
     }
 }
 
-
 function selectionSortCards() {
     let counter = 0;
     printSortedStep(counter);
@@ -80,15 +78,15 @@ function selectionSortCards() {
                 lowestValueIndex = j;
             }
         }
-        if (lowestValueIndex !== i) {
-            let aux = arrayCards[j];
-            arrayCards[j] = arrayCards[i];
-            arrayCards[i] = aux;
+        if (lowestValueIndex != i) {
+            let aux = arrayCards[i];
+            arrayCards[i] = arrayCards[lowestValueIndex];
+            arrayCards[lowestValueIndex] = aux;
             counter++;
             printSortedStep(counter);
         }
     }
-}
+};
 
 function printSortedStep(paso) {
     const newArray = arrayCards.map(objCard => {
