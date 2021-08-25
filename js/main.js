@@ -76,6 +76,11 @@ function selectionSortCards() {
         for (let j = i + 1; j < arrayCards.length; j++) {
             if (arrayCards[j].value < arrayCards[lowestValueIndex].value) {
                 lowestValueIndex = j;
+            } else if (arrayCards[j].value === arrayCards[lowestValueIndex].value) {
+                if (arrayCards[j].valuePinta < arrayCards[lowestValueIndex].valuePinta) {
+                    lowestValueIndex = j;
+                }
+
             }
         }
         if (lowestValueIndex != i) {
