@@ -69,33 +69,57 @@ function sortElements() {
     }
 }
 
-function bubbleSortCards() {
-    let wall = arrayCards.length;
-    let counter = 0;
-    printSortedStep(counter);
-    while (1 < wall) {
-        let i = 1;
-        while (i < wall) {
-            if (arrayCards[i].value < arrayCards[i - 1].value) {
-                let aux = arrayCards[i];
-                arrayCards[i] = arrayCards[i - 1];
-                arrayCards[i - 1] = aux;
-                counter++;
-                printSortedStep(counter);
-            } else if (arrayCards[i].value === arrayCards[i - 1].value ) {
-                if (arrayCards[i].valuePinta < arrayCards[i - 1].valuePinta) {
-                    let aux = arrayCards[i];
-                    arrayCards[i] = arrayCards[i - 1];
-                    arrayCards[i - 1] = aux;
-                    counter++;
-                    printSortedStep(counter);
-                }
+
+function selectionSortCards() {
+    for (let i = 0; i < arrayCards.length - 1; i++) {
+        let lowestValueIndex = i;
+        for (let j = i + 1; j < arrayCards.length; j++) {
+            if (arrayCards[j].value < arrayCards[lowestValueIndex].value) {
+                lowestValueIndex = j;
             }
-            i++;
         }
-        wall--;
+        if (lowestValueIndex !== i) {
+            let aux = arrayCards[j];
+            arrayCards[j] = arrayCards[i];
+            arrayCards[i] = aux;
+        }
     }
-};
+}
+
+
+
+
+
+
+
+
+// function bubbleSortCards() {
+//     let wall = arrayCards.length;
+//     let counter = 0;
+//     printSortedStep(counter);
+//     while (1 < wall) {
+//         let i = 1;
+//         while (i < wall) {
+//             if (arrayCards[i].value < arrayCards[i - 1].value) {
+//                 let aux = arrayCards[i];
+//                 arrayCards[i] = arrayCards[i - 1];
+//                 arrayCards[i - 1] = aux;
+//                 counter++;
+//                 printSortedStep(counter);
+//             } else if (arrayCards[i].value === arrayCards[i - 1].value ) {
+//                 if (arrayCards[i].valuePinta < arrayCards[i - 1].valuePinta) {
+//                     let aux = arrayCards[i];
+//                     arrayCards[i] = arrayCards[i - 1];
+//                     arrayCards[i - 1] = aux;
+//                     counter++;
+//                     printSortedStep(counter);
+//                 }
+//             }
+//             i++;
+//         }
+//         wall--;
+//     }
+// };
 
 function printSortedStep(paso) {
     const newArray = arrayCards.map(objCard => {
